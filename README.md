@@ -63,3 +63,4 @@ No build tools, package managers, or local servers required!
 ## 📄 License
 
 MIT License. Free to use, modify, and distribute.
+
