@@ -353,7 +353,7 @@
     if (remaining >= 0) {
       caloriesRemainingNumber.textContent = remaining.toLocaleString();
       caloriesRemainingLabel.textContent = 'kcal left';
-      caloriesRemainingNumber.style.color = '#0f172a';
+      caloriesRemainingNumber.style.color = '#1e1b4b';
 
       if (pct >= 90) {
         calorieStatusPill.className = 'pill pill-warning';
@@ -363,8 +363,8 @@
       } else {
         calorieStatusPill.className = 'pill pill-success';
         calorieStatusPill.textContent = 'On Track';
-        calorieProgressRing.style.stroke = '#10b981';
-        calorieProgressBar.style.backgroundColor = '#10b981';
+        calorieProgressRing.style.stroke = '#7c3aed';
+        calorieProgressBar.style.backgroundColor = '#7c3aed';
       }
     } else {
       const overBy = Math.abs(remaining);
@@ -491,7 +491,7 @@
       if (Number(item.protein) > 0) {
         const pTag = document.createElement('span');
         pTag.className = 'item-macro-tag';
-        pTag.style.color = '#8b5cf6';
+        pTag.style.color = '#6d28d9';
         pTag.textContent = `P: ${item.protein}g`;
         details.appendChild(pTag);
       }
@@ -499,7 +499,7 @@
       if (Number(item.carbs) > 0) {
         const cTag = document.createElement('span');
         cTag.className = 'item-macro-tag';
-        cTag.style.color = '#f59e0b';
+        cTag.style.color = '#a855f7';
         cTag.textContent = `C: ${item.carbs}g`;
         details.appendChild(cTag);
       }
@@ -507,7 +507,7 @@
       if (Number(item.fat) > 0) {
         const fTag = document.createElement('span');
         fTag.className = 'item-macro-tag';
-        fTag.style.color = '#ec4899';
+        fTag.style.color = '#d946ef';
         fTag.textContent = `F: ${item.fat}g`;
         details.appendChild(fTag);
       }
@@ -637,8 +637,8 @@
 
     // Draw horizontal grid lines & labels
     ctx.lineWidth = 1;
-    ctx.strokeStyle = '#e2e8f0';
-    ctx.fillStyle = '#94a3b8';
+    ctx.strokeStyle = '#ede9fe';
+    ctx.fillStyle = '#a5a1c2';
     ctx.font = '11px sans-serif';
     ctx.textAlign = 'right';
 
@@ -684,12 +684,12 @@
       const barX = xCenter - (barWidth / 2);
       const barY = paddingTop + chartHeight - barHeight;
 
-      // Color choice: emerald green normally; red if exceeded; slightly muted if 0
-      let barColor = '#10b981';
+      // Color choice: purple normally; red if exceeded; slightly muted if 0
+      let barColor = '#7c3aed';
       if (day.calories > targetCal) {
         barColor = '#ef4444';
       } else if (day.calories === 0) {
-        barColor = '#e2e8f0';
+        barColor = '#ede9fe';
       }
 
       // Bar body with rounded top
@@ -698,21 +698,21 @@
 
       // Value label on top of bar
       if (day.calories > 0) {
-        ctx.fillStyle = '#1e293b';
+        ctx.fillStyle = '#312e81';
         ctx.font = 'bold 11px sans-serif';
         ctx.textAlign = 'center';
         ctx.fillText(day.calories.toString(), xCenter, Math.max(paddingTop + 12, barY - 6));
       }
 
       // Day label below axis
-      ctx.fillStyle = day.isCurrent ? '#10b981' : '#64748b';
+      ctx.fillStyle = day.isCurrent ? '#7c3aed' : '#6d6787';
       ctx.font = day.isCurrent ? 'bold 12px sans-serif' : '11px sans-serif';
       ctx.textAlign = 'center';
       ctx.fillText(day.label, xCenter, height - paddingBottom + 18);
 
       if (day.isCurrent) {
         // Underline current active day
-        ctx.fillStyle = '#10b981';
+        ctx.fillStyle = '#7c3aed';
         ctx.fillRect(xCenter - 14, height - paddingBottom + 22, 28, 2);
       }
     });
